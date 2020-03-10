@@ -1,9 +1,12 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
 const windowStateKeeper = require('electron-window-state');
-const path = require('path');
 
 let mainWindow;
-let urlWindow;
+// let urlWindow;
+
+ipcMain.on('new-item', (e, itemUrl) => {
+  e.sender.send('new-item-success', 'Item URL');
+});
 
 createMainWindow = () => {
 
@@ -16,22 +19,16 @@ createMainWindow = () => {
     width: stateWindow.width, height: stateWindow.height,
     minWidth: 350, maxWidth: 650, minHeight: 300,
     webPreferences: {
-      nodeIntegration: false,
-      preload: path.dirname + "/renderer/app.js",
+      nodeIntegration: true
     }
   });
 
   stateWindow.manage(mainWindow);
 
-
   mainWindow.loadFile('./renderer/main.html');
-}
 
-// createAddUrlWindow = () => {
-//   urlWindow = new BrowserWindow({
-    
-//   });
-// }
+  mainWindow.webContents.openDevTools();
+}
 
 app.whenReady().then(createMainWindow);
 

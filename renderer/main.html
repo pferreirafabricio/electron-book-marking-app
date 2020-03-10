@@ -14,19 +14,28 @@
   </head>
   <body>
     <header>
-      <input class="form-control" type="text" id="search" placeholder="Search">
-      <button class="btn btn-large btn-default" id="show-modal" onclick="showConsole()">
-        <span class="icon icon-search"></span>  
+      <button class="btn btn-large btn-default" id="show-modal">
+        <span class="icon icon-plus"></span>  
       </button>
+      <input class="form-control" type="text" id="search" placeholder="Search">
     </header>
 
     <main>
       <p id="no-items">No items added</p>
-      <div id="items"></div>
+      <div id="items">
+
+      </div>
     </main>
+
+    <div id="modal">
+      <input class="form-control" type="text" id="url" placeholder="Enter URL">
+      <button class="btn btn-large btn-primary" id="add-item">Add Item</button>
+      <button class="btn btn-large btn-default" id="close-modal">Cancel</button>
+    </div>
     
   </body>
 
-  <script src="./app.js"></script>
-
+  <script>
+    require('./app.js');
+  </script>
 </html>
