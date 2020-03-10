@@ -1,11 +1,14 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const windowStateKeeper = require('electron-window-state');
+const readItem = require('./readItem');
 
 let mainWindow;
 // let urlWindow;
 
 ipcMain.on('new-item', (e, itemUrl) => {
-  e.sender.send('new-item-success', 'Item URL');
+  readItem(itemUrl, (item) => {
+    e.sender.send('new-item-success', item);
+  });
 });
 
 createMainWindow = () => {
