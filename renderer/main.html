@@ -7,11 +7,26 @@
     <link rel="stylesheet" href="./main.css">
 
     <!-- Photon CSS -->
-    
+    <link rel="stylesheet" href="./photon/css/photon.min.css">
+
     <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" /> -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <header>
+      <input class="form-control" type="text" id="search" placeholder="Search">
+      <button class="btn btn-large btn-default" id="show-modal" onclick="showConsole()">
+        <span class="icon icon-search"></span>  
+      </button>
+    </header>
+
+    <main>
+      <p id="no-items">No items added</p>
+      <div id="items"></div>
+    </main>
+    
   </body>
+
+  <script src="./app.js"></script>
+
 </html>

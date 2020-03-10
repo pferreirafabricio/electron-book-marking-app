@@ -1,0 +1,46 @@
+:root {
+    --baby-gray: rgb(224, 224, 224);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font: caption;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--baby-gray);
+    padding: 10px;
+    width: 100%;
+    border-bottom: 1px solid rgb(214, 214, 214);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+#show-modal {
+    margin-left: 10px;
+}
+
+#no-items {
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    top: 100px;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+}
+
+
