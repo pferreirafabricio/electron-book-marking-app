@@ -6,6 +6,21 @@ const modal = document.getElementById('modal');
 const closeModal = document.getElementById('close-modal');
 const addItem = document.getElementById('add-item');
 const itemUrl = document.getElementById('url');
+const search = document.getElementById('search');
+
+search.addEventListener('keyup', (e) => {
+    console.log(Array.from(document.getElementsByClassName('read-item')));
+    Array.from(document.getElementsByClassName('read-item')).forEach((item) => {
+        let hasMatch = item.innerHTML.toLowerCase().includes(search.value);
+        item.style.display = hasMatch ? 'flex' : 'none';
+    });
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+        items.changeSelection(e.key);
+    }
+});
 
 toggleModalButtons = () => {
     if (addItem.disabled) {
@@ -46,7 +61,7 @@ ipcRenderer.on('new-item-success', (e, item) => {
     items.addItem(item, true);
 
     toggleModalButtons();
-    
+
     modal.style.display = 'none';
     itemUrl.value = '';
 });
