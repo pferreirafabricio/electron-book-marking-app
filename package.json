@@ -1,0 +1,25 @@
+{
+  "dependencies": {},
+  "name": "electron-bookmarkingapp",
+  "description": "Desktop application to add links for reading made with Electron",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {
+    "electron": "^8.1.0",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "start": "yarn electron .",
+    "mon": "nodemon main.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pferreirafabricio/electron-bookmarkingApp.git"
+  },
+  "author": "Fabrício Pinto Ferreira",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pferreirafabricio/electron-bookmarkingApp/issues"
+  },
+  "homepage": "https://github.com/pferreirafabricio/electron-bookmarkingApp#readme"
+}
