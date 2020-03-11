@@ -30,7 +30,7 @@ createMainWindow = () => {
 
   mainWindow.loadFile('./renderer/main.html');
 
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(createMainWindow);

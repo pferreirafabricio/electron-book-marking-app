@@ -91,7 +91,7 @@ main {
 }
 
 .read-item.selected {
-    border-left-color: #000;
+    border-left-color: darkturquoise;
 }
 
 .read-item img {
