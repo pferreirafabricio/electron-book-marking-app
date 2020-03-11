@@ -7,25 +7,40 @@ fs.readFile(`${__dirname}/reader.js`, (err, data) => {
 
 exports.storage = JSON.parse(localStorage.getItem('readit-items')) || [];
 
+window.addEventListener('message', (e) => {
+    console.log(e.data);
+});
+
+exports.getSelectedItem = () => {
+    let currentItem = document.getElementsByClassName('read-item selected')[0];
+
+    let itemIndex = 0;
+    let child = currentItem;
+    while ((child = child.previousSibling) != null) itemIndex++;
+
+    return { node: currentItem, index: itemIndex }
+}
+
 exports.save = () => {
     localStorage.setItem('readit-items', JSON.stringify(this.storage));
 }
 
 exports.select = (e) => {
-    document.getElementsByClassName('read-item selected')[0].classList.remove('selected');
+    this.getSelectedItem().node.classList.remove('selected');
     e.currentTarget.classList.add('selected');
 }
 
 exports.open = ((e) => {
     if (!this.storage.length) return
 
-    let selectedtItem = document.getElementsByClassName('read-item selected')[0];
+    let selectedtItem = this.getSelectedItem().node;
     let contentURL = selectedtItem.dataset.url;
-    let readerWin = window.open(contentURL, '',`
+    let readerWin = window.open(contentURL, '', `
         maxWidth=2000,
         maxHeight=2000,
         width=1200,
         height=800,
+        x=0,
         backgroundColor=#DEDEDE,
         nodeIntegration=0,
         contextIsolation=1
@@ -35,7 +50,7 @@ exports.open = ((e) => {
 });
 
 exports.changeSelection = (direction) => {
-    let currentItem = document.getElementsByClassName('read-item selected')[0];
+    let currentItem = this.getSelectedItem().node;
 
     if (direction === 'ArrowUp' && currentItem.previousSibling) {
         currentItem.classList.remove('selected');
