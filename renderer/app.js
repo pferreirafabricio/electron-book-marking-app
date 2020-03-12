@@ -16,6 +16,11 @@ search.addEventListener('keyup', (e) => {
     });
 });
 
+window.newItem = () => {
+    showModal.click();
+}
+
+
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         items.changeSelection(e.key);
