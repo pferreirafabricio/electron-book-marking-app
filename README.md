@@ -17,6 +17,5 @@ It was the final project of the course: [Master Electron: Desktop Apps with HTML
 
 ## :memo: License
 
-This project is under the MIT license. Take a look at the file [LICENSE]
-(LICENSE.md) for more details.
+This project is under the MIT license. Take a look at the [LICENSE](LICENSE.md) file for more details.
 
