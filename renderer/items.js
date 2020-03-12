@@ -1,4 +1,5 @@
 const fs = require('fs');
+const { shell } = require('electron');
 
 let readerJS;
 fs.readFile(`${__dirname}/reader.js`, (err, data) => {
@@ -26,7 +27,6 @@ exports.delete = (indexItem) => {
         let newSelectedItem = (indexItem === 0) ? 1 : indexItem - 1;
         document.getElementsByClassName('read-item')[newSelectedItem].classList.add('selected');
     }
-    
 }
 
 exports.getSelectedItem = () => {
@@ -66,6 +66,13 @@ exports.open = ((e) => {
 
     readerWin.eval(readerJS.replace('{index}', selectedtItem.index));
 });
+
+exports.openNative = () => {
+    if (!this.storage.length) return
+
+    let selectedItem = this.getSelectedItem();
+    shell.openExternal(selectedItem.node.dataset.url);
+}
 
 exports.changeSelection = (direction) => {
     let currentItem = this.getSelectedItem().node;

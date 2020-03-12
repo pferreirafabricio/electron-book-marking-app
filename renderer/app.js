@@ -20,7 +20,18 @@ window.newItem = () => {
     showModal.click();
 }
 
+window.openItem = items.open;
 
+window.deleteItem = () => {
+    let selectedItem = items.getSelectedItem();
+    items.delete(selectedItem.index);
+}
+
+window.openItemNative = items.openNative;
+
+window.searchItem = () => {
+    search.focus();
+}
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
         items.changeSelection(e.key);

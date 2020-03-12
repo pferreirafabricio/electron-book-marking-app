@@ -8,7 +8,28 @@ const templateMenu = [
                 label: 'Add item',
                 click: () => {
                     window.newItem();
-                }
+                },
+                accelerator: 'CmdOrCtrl+O',
+            },
+            {
+                label: 'Read Item',             
+                click: window.openItem,
+                accelerator: 'CmdOrCtrl+Enter'
+            },
+            {
+                label: 'Delete Item',
+                click: window.deleteItem,
+                accelerator: 'CmdOrCtrl+Backspace'
+            },
+            {
+                label: 'Open in Browser',
+                click: window.openItemNative,
+                accelerator: 'CmdOrCtrl+Shift+E'
+            },
+            {
+                label: 'Search Items',
+                click: window.searchItem,
+                accelerator: 'CmdOrCtrl+S'
             }
         ]
     },
