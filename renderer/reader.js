@@ -15,7 +15,10 @@ divEl.style.boxShadow = '2px 2px 2px rgba(0, 0, 0, 0.2)';
 divEl.style.msUserSelect = 'none';
 
 divEl.addEventListener('click', () => {
-    window.opener.postMessage('item-done', '*');
+    window.opener.postMessage({
+        action: 'delete-read-item',
+        itemIndex: {index},
+    }, '*');
 });
 
 document.getElementsByTagName('body')[0].appendChild(divEl);

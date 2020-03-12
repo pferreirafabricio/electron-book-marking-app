@@ -8,8 +8,26 @@ fs.readFile(`${__dirname}/reader.js`, (err, data) => {
 exports.storage = JSON.parse(localStorage.getItem('readit-items')) || [];
 
 window.addEventListener('message', (e) => {
-    console.log(e.data);
+    if (e.data.action === 'delete-read-item') {
+        this.delete(e.data.itemIndex);
+
+        e.source.close();
+    }
 });
+
+exports.delete = (indexItem) => {
+    const divEl = document.querySelector('#items');
+    divEl.removeChild(divEl.childNodes[indexItem]);
+
+    this.storage.splice(indexItem);
+    this.save();
+
+    if (this.storage.length) {
+        let newSelectedItem = (indexItem === 0) ? 1 : indexItem - 1;
+        document.getElementsByClassName('read-item')[newSelectedItem].classList.add('selected');
+    }
+    
+}
 
 exports.getSelectedItem = () => {
     let currentItem = document.getElementsByClassName('read-item selected')[0];
@@ -33,8 +51,8 @@ exports.select = (e) => {
 exports.open = ((e) => {
     if (!this.storage.length) return
 
-    let selectedtItem = this.getSelectedItem().node;
-    let contentURL = selectedtItem.dataset.url;
+    let selectedtItem = this.getSelectedItem();
+    let contentURL = selectedtItem.node.dataset.url;
     let readerWin = window.open(contentURL, '', `
         maxWidth=2000,
         maxHeight=2000,
@@ -46,7 +64,7 @@ exports.open = ((e) => {
         contextIsolation=1
     `);
 
-    readerWin.eval(readerJS);
+    readerWin.eval(readerJS.replace('{index}', selectedtItem.index));
 });
 
 exports.changeSelection = (direction) => {
