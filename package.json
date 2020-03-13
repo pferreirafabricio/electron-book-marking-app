@@ -1,11 +1,12 @@
 {
-  "name": "electron-bookmarkingapp",
+  "name": "Readit",
   "description": "Desktop application to add links for reading made with Electron",
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
     "start": "nodemon ./main.js",
-    "watch": "nodemon --exec electron ."
+    "watch": "nodemon --exec electron .",
+    "build": "electron-builder --help"
   },
   "dependencies": {
     "electron-window-state": "^5.0.3",
@@ -13,6 +14,7 @@
   },
   "devDependencies": {
     "electron": "^8.1.0",
+    "electron-builder": "^22.4.1",
     "nodemon": "^2.0.2"
   },
   "repository": {
