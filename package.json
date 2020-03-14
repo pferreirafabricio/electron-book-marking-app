@@ -26,5 +26,19 @@
   "bugs": {
     "url": "https://github.com/pferreirafabricio/electron-bookmarkingApp/issues"
   },
-  "homepage": "https://github.com/pferreirafabricio/electron-bookmarkingApp#readme"
+  "homepage": "https://github.com/pferreirafabricio/electron-bookmarkingApp#readme",
+  "build": {
+    "appId": "com.pferreirafabricio.readit",
+    "copyright": "Copyright 2020 Fabrício Pinto Ferreira",
+    "mac": {
+      "category": "public.app-category.productivity",
+      "target": "dmg"
+    },
+    "win": {
+      "target": "zip"
+    },
+    "linux": {
+      "category": "Utility"
+    }
+  }
 }

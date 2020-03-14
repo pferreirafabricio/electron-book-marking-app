@@ -23,14 +23,13 @@ createMainWindow = () => {
     minWidth: 350, maxWidth: 650, minHeight: 300,
     webPreferences: {
       nodeIntegration: true
-    }
+    },
+    icon: __dirname + '/build/logo.ico', 
   });
 
   stateWindow.manage(mainWindow);
 
   mainWindow.loadFile('./renderer/main.html');
-
-  // mainWindow.webContents.openDevTools();
 }
 
 app.whenReady().then(createMainWindow);
