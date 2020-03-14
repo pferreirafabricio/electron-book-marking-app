@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon ./main.js",
     "watch": "nodemon --exec electron .",
-    "build": "electron-builder --help"
+    "build": "electron-builder -w",
+    "win-cert": "electron-builder create-self-signed-cert -p fabreco"
   },
   "dependencies": {
     "electron-window-state": "^5.0.3",
@@ -35,7 +36,9 @@
       "target": "dmg"
     },
     "win": {
-      "target": "zip"
+      "certificateFile": "private/fabreco.pfx",
+      "certificatePassword": "",
+      "publisherName": "fabreco"
     },
     "linux": {
       "category": "Utility"
