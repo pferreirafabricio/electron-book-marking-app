@@ -2,7 +2,10 @@
 
 ## :boom: Result
 
-<img src="./projectImages/screenshot-main.png" width="1300">
+<img src="./projectImages/screenshot-browser.png" width="1300">
+<hr/>
+<img src="./projectImages/screenshot-main.png" width="400">
+<img src="./projectImages/screenshot-add.png" width="400">
 
 ## :artificial_satellite: Technologies
 
