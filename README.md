@@ -4,8 +4,9 @@
 
 <img src="./projectImages/screenshot-browser.png" width="1300">
 <hr/>
-<img src="./projectImages/screenshot-main.png" width="400">
-<img src="./projectImages/screenshot-add.png" width="400">
+<img src="./projectImages/screenshot-main.png" height="500">
+<img src="./projectImages/screenshot-add.png" height="500">
+<hr/>
 
 ## :artificial_satellite: Technologies
 
