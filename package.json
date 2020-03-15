@@ -1,7 +1,7 @@
 {
   "name": "Readit",
   "description": "Desktop application to add links for reading made with Electron",
-  "version": "0.9.0",
+  "version": "1.0.1",
   "main": "main.js",
   "scripts": {
     "start": "nodemon ./main.js",
