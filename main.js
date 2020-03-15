@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, TouchBar } = require('electron');
 const windowStateKeeper = require('electron-window-state');
 const readItem = require('./readItem');
 const updater = require('./updater');
@@ -10,6 +10,26 @@ ipcMain.on('new-item', (e, itemUrl) => {
   readItem(itemUrl, (item) => {
     e.sender.send('new-item-success', item);
   });
+});
+
+const tbLabel = new TouchBar.TouchBarLabel({
+  label: 'My label'
+});
+
+const tbButton = new TouchBar.TouchBarButton({
+  label: 'My button',
+  backgroundColor: 'darkturquoise',
+  click: () => {
+    mainWindow.webContents.openDevTools();
+  }
+});
+
+
+const touchBar = new TouchBar({
+  items: [
+    tbLabel,
+    tbButton
+  ],
 });
 
 createMainWindow = () => {
@@ -27,12 +47,14 @@ createMainWindow = () => {
     webPreferences: {
       nodeIntegration: true
     },
-    icon: __dirname + '/build/logo.ico', 
+    icon: __dirname + '/build/logo.ico',
   });
 
   stateWindow.manage(mainWindow);
 
   mainWindow.loadFile('./renderer/main.html');
+
+  if (process.platform === 'darwin') mainWindow.setTouchBar(touchBar);
 }
 
 app.whenReady().then(createMainWindow);
