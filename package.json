@@ -7,6 +7,7 @@
     "start": "nodemon ./main.js",
     "watch": "nodemon --exec electron .",
     "build": "electron-builder -w",
+    "release": "electron-builder -w -p 'onTagOrDraft'",
     "win-cert": "electron-builder create-self-signed-cert -p fabreco"
   },
   "dependencies": {
@@ -15,7 +16,7 @@
   },
   "devDependencies": {
     "electron": "^8.1.0",
-    "electron-builder": "^22.4.1",
+    "electron-builder": "22.0.0",
     "nodemon": "^2.0.2"
   },
   "repository": {
@@ -31,9 +32,11 @@
   "build": {
     "appId": "com.pferreirafabricio.readit",
     "copyright": "Copyright 2020 Fabrício Pinto Ferreira",
+    "publish": {
+      "provider": "github"
+    },
     "mac": {
-      "category": "public.app-category.productivity",
-      "target": "dmg"
+      "category": "public.app-category.productivity"
     },
     "win": {
       "certificateFile": "private/fabreco.pfx",
