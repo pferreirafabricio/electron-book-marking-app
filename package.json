@@ -17,7 +17,7 @@
     "global": "^4.4.0"
   },
   "devDependencies": {
-    "electron": "^8.1.0",
+    "electron": "^8.2.4",
     "electron-builder": "22.0.0",
     "nodemon": "^2.0.2"
   },
